@@ -1,0 +1,35 @@
+---
+version: 0.1
+
+log:
+  level: debug
+  formatter: text
+  fields:
+    service: registry
+    environment: docker-registry-0
+
+http:
+  addr: 0.0.0.0:5001
+
+
+  debug:
+    addr: 127.0.0.1:5002
+
+  headers:
+    X-Content-Type-Options: [nosniff]
+
+  relativeurls: no
+
+storage:
+  filesystem:
+    rootdirectory: /var/lib/registry
+
+  delete:
+    enabled: false
+  redirect:
+    disable: false
+
+proxy:
+  remoteurl: http://registry:5000
+
+
